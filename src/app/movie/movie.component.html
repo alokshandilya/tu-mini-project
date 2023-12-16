@@ -4,10 +4,7 @@
     <div class="left">
       <div class="name">{{ movie?.name }}</div>
       <div class="rating">
-        <app-star-rating
-          [rating]="movie?.rating"
-          [isReadOnly]="true"
-        ></app-star-rating>
+        <app-star-rating [rating]="movie?.rating" [isReadOnly]="true"></app-star-rating>
         <span class="rating-value">{{ movie?.rating }}</span>
       </div>
       <div class="cover">
@@ -19,23 +16,21 @@
       <div class="rating-form">
         <div class="form-group">
           <label for="uname">Name</label>
-          <input type="text" name="uname" class="form-control" />
+          <input type="text" name="uname" class="form-control" [(ngModel)]="newReview.author" />
         </div>
         <div class="form-group">
           <label for="rating">Rating</label>
           <div class="rating">
-            <app-star-rating
-              [rating]="0"
-              [isReadOnly]="false"
-            ></app-star-rating>
+            <!-- Assuming you have app-star-rating component with [(ngModel)]="newReview.rating" -->
+            <app-star-rating [(rating)]="newReview.rating" [isReadOnly]="false"></app-star-rating>
           </div>
         </div>
         <div class="form-group">
           <label for="review">Review</label>
-          <textarea name="review" rows="3" class="form-control"></textarea>
+          <textarea name="review" rows="3" class="form-control" [(ngModel)]="newReview.text"></textarea>
         </div>
         <div class="btn-container">
-          <button class="btn btn-dark">Submit</button>
+          <button class="btn btn-dark" (click)="submitReview()">Submit</button>
         </div>
       </div>
     </div>
@@ -53,15 +48,12 @@
           </div>
           <div class="review-right">
             <div class="rating">
-              <app-star-rating
-                [rating]="review.rating"
-                [isReadOnly]="true"
-              ></app-star-rating>
+              <app-star-rating [rating]="review.rating" [isReadOnly]="true"></app-star-rating>
               <span class="rating-value">{{ review.rating }}</span>
             </div>
           </div>
         </div>
-        <div class="review-text"></div>
+        <div class="review-text">{{ review.text }}</div>
       </div>
     </div>
     <div class="reviews" *ngIf="movie?.reviews?.length === 0">

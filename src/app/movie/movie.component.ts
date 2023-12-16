@@ -13,6 +13,8 @@ export class MovieComponent implements OnInit {
   url = '';
   movies: any;
   movie: any;
+  newReview: any = {};
+  localStorageKey = 'movie_reviews';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -39,7 +41,27 @@ export class MovieComponent implements OnInit {
       );
       if (index > -1) {
         this.movie = this.movies[index];
+
+        // Load existing reviews from local storage if any
+        const storedReviews = localStorage.getItem(this.localStorageKey);
+        this.movie.reviews = storedReviews ? JSON.parse(storedReviews) : [];
       }
     });
+  }
+
+  submitReview() {
+    // Add the new review to the movie reviews array
+    this.movie.reviews.push({
+      author: this.newReview.author,
+      published_on: new Date(),
+      rating: this.newReview.rating,
+      text: this.newReview.text
+    });
+
+    // Save reviews to local storage
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.movie.reviews));
+
+    // Clear the form
+    this.newReview = {};
   }
 }
