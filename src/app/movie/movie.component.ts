@@ -14,7 +14,7 @@ export class MovieComponent implements OnInit {
   movies: any;
   movie: any;
   newReview: any = {};
-  localStorageKey = 'movie_reviews';
+  localStorageKeyBase = 'movie_reviews';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -36,30 +36,43 @@ export class MovieComponent implements OnInit {
   getMovie() {
     this.http.get(this.url).subscribe((movies) => {
       this.movies = movies;
-      let index = this.movies.findIndex(
-        (movie: { id: string }) => movie.id == this.id
-      );
-      if (index > -1) {
-        this.movie = this.movies[index];
-
-        // Load existing reviews from local storage if any
-        const storedReviews = localStorage.getItem(this.localStorageKey);
-        this.movie.reviews = storedReviews ? JSON.parse(storedReviews) : [];
-      }
+      this.loadMovie();
     });
   }
 
+  loadMovie() {
+    const filteredMovies = this.movies.filter(
+      (movie: { id: string }) => movie.id == this.id
+    );
+    if (filteredMovies.length > 0) {
+      // Create a copy of the reviews array for each movie
+      this.movie = { ...filteredMovies[0] };
+
+      // Load existing reviews from local storage if any
+      const localStorageKey = `${this.localStorageKeyBase}_${this.id}`;
+      const storedReviews = localStorage.getItem(localStorageKey);
+      this.movie.reviews = storedReviews ? JSON.parse(storedReviews) : [];
+    }
+  }
+
   submitReview() {
+    // Create a copy of the movie object to avoid modifying the original array
+    const updatedMovie = { ...this.movie };
+
     // Add the new review to the movie reviews array
-    this.movie.reviews.push({
+    updatedMovie.reviews.push({
       author: this.newReview.author,
       published_on: new Date(),
       rating: this.newReview.rating,
-      text: this.newReview.text
+      text: this.newReview.text,
     });
 
-    // Save reviews to local storage
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.movie.reviews));
+    // Save reviews to local storage with a unique key for each movie
+    const localStorageKey = `${this.localStorageKeyBase}_${this.id}`;
+    localStorage.setItem(localStorageKey, JSON.stringify(updatedMovie.reviews));
+
+    // Reload the movie to reflect the changes
+    this.loadMovie();
 
     // Clear the form
     this.newReview = {};
