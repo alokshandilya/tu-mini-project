@@ -1,6 +1,6 @@
-# FinalProject
+# TU-mini-project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4 with nodeJS version 12.11.1
 
 ## Development server
 
