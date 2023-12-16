@@ -1,7 +1,6 @@
-<ng-template #t let-fill="fill">
-  <span class="star" [class.full]="fill === 100">
-    <span class="half" [style.width.%]="fill">&hearts;</span
-    >&hearts;
+<ng-template #t let-fill="fill" let-index="index">
+  <span class="star" [class.full]="fill === 100" (click)="onStarClick(index)">
+    <span class="half" [style.width.%]="fill"></span>&hearts;
   </span>
 </ng-template>
 
