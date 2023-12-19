@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4 with nodeJS version 12.11.1
 
+# Presentation
+
+[Link](https://gamma.app/public/Rating-Review-Application-9z4u9nwy2y4noze)
+
 ## Development server
 
 - `ng build --prod --base-href "https://alokshandilya.github.io/tu-mini-project/"`
