@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "final-project": {
+    "tu-mini-project": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/final-project",
+            "outputPath": "dist/tu-mini-project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "final-project:build"
+            "browserTarget": "tu-mini-project:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "final-project:build:production"
+              "browserTarget": "tu-mini-project:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "final-project:build"
+            "browserTarget": "tu-mini-project:build"
           }
         },
         "test": {
@@ -120,16 +120,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "final-project:serve"
+            "devServerTarget": "tu-mini-project:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "final-project:serve:production"
+              "devServerTarget": "tu-mini-project:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "final-project"
+  "defaultProject": "tu-mini-project"
 }
