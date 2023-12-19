@@ -1,60 +1,115 @@
+/* YourComponent.component.css */
+
+/* Define general styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /* Optional: Define a font for the body */
+}
+
 .login-container {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #ffe645 0%, #e2aa02 100%);
   position: relative;
-  .logo {
-    font-size: 70px;
-    font-weight: bold;
-    font-family: 'Rubik Lines', cursive;
-    letter-spacing: 10px;
-    position: absolute;
-    top: 50px;
-    right: 50px;
-  }
-  .desc {
-    font-size: 34px;
-    font-family: 'Satisfy', cursive;
-    letter-spacing: 5px;
-    position: absolute;
-    top: 200px;
-    right: 50px;
-    text-align: right;
-    width: 1200px;
-  }
-  .film {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    width: 618px;
-  }
-  .login-form {
-    width: 500px;
-    height: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    box-shadow: 5px 5px 20px #383838;
-    .form-group {
-      margin-top: 20px;
-    }
-    label {
-      font-weight: bold;
-    }
-    .btn-container {
-      position: relative;
-      .btn {
-        margin-top: 30px;
-      }
-      .error {
-        position: absolute;
-        top: 32px;
-        right: 0px;
-        color: red;
-      }
-    }
-  }
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/nodess.jpg');
+  /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.95;
+  filter : blur(4px);
+  /* Adjust the opacity as needed */
+  z-index: -1;
+  /* Ensure the background stays behind the content */
+  // filter: brightness(80%) contrast(120%);
+  /* Adjust brightness and contrast for clarity */
+  background-blend-mode: overlay;
+  /* Apply an overlay to enhance visibility */
+}
+
+.logo {
+  width: 230px;
+  font-size: 70px;
+  font-weight: bold;
+  font-family: 'Roboto', cursive;
+  letter-spacing: 10px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  left: 100px;
+  color: rgb(227, 222, 222);
+  background-color: #1d2021;
+  text-shadow:
+    -6px -6px 0 black,
+    6px -6px 0 black,
+    -6px 6px 0 black,
+    6px 6px 0 black;
+  /* Creating a 6px outline effect with text-shadow */
+}
+
+
+.desc {
+  font-size: 34px;
+  font-family: 'Roboto', cursive;
+  letter-spacing: 5px;
+  position: absolute;
+  top: 200px;
+  right: 50px;
+  text-align: right;
+  width: 1200px;
+  /* Additional styles for the description if needed */
+}
+
+.film {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 618px;
+  /* Additional styles for the film image if needed */
+}
+
+.login-form {
+  width: 500px;
+  height: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  box-shadow: 5px 5px 20px #383838;
+  /* Additional styles for the login form if needed */
+}
+
+/* Specific styles for form elements and buttons */
+.form-group {
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.btn-container {
+  position: relative;
+}
+
+.btn {
+  margin-top: 30px;
+}
+
+.error {
+  position: absolute;
+  top: 32px;
+  right: 0px;
+  color: red;
 }
