@@ -5,23 +5,21 @@ This project was generated with
  - `nodeJS` version 12.11.1
  - `fnm` as node version manager
 
-This project currently lacked backend, currently relies on browser's local storage
+This project currently lacked backend, currently relies on **browser's local storage
  - will add in future
 
 # Presentation
 
 [Link](https://gamma.app/public/Rating-Review-Application-9z4u9nwy2y4noze)
 
-## Development server
+# Run
 
-- `ng build --prod --base-href "https://alokshandilya.github.io/tu-mini-project/"`
-- `npx angular-cli-ghpages --dir=dist/tu-mini-project`
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`npm install` (downgrade node to v12.11.0) followed by `npm start` or `ng serve`
 
 # Screenshots
 
-[Screenshot 1](./src/assets/images/screenshot-1.png)
+![Screenshot 1](./src/assets/images/screenshot-1.png "Login Page")
 
-[Screenshot 2](./src/assets/images/screenshot-2.png)
+![Screenshot 2](./src/assets/images/screenshot-2.png "Movie Selection Page")
 
-[Screenshot 3](./src/assets/images/screenshot-3.png)
+![Screenshot 3](./src/assets/images/screenshot-3.png "Review Page")
