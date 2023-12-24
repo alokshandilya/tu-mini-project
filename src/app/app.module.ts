@@ -26,7 +26,7 @@ import { FeatureModule } from './feature/feature.module';
     HttpClientModule,
     FeatureModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }], // for deployment in gh-pages
   bootstrap: [AppComponent]
 })
 export class AppModule { }
