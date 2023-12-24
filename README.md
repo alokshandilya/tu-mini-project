@@ -23,3 +23,8 @@ This project currently lacked backend, currently relies on **_browser's local st
 ![Screenshot 2](./src/assets/images/screenshot-2.png "Movie Selection Page")
 
 ![Screenshot 3](./src/assets/images/screenshot-3.png "Review Page")
+
+# Live Demo
+
+https://github.com/alokshandilya/tu-mini-project/assets/77057272/0e8eb675-40cc-4286-a6e9-deee7124f24e
+
