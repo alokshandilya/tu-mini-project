@@ -5,7 +5,7 @@ This project was generated with
  - `nodeJS` version 12.11.1
  - `fnm` as node version manager
 
-This project currently lacked backend, currently relies on **browser's local storage
+This project currently lacked backend, currently relies on **_browser's local storage_**
  - will add in future
 
 # Presentation
